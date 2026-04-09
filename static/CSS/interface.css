@@ -21,25 +21,18 @@ body{
     background-repeat: no-repeat;
 }
 
-footer{
-    background-color: chocolate;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 15px;
-}
 
 .div1{
     display: flex;
     background-color: #8b8b8b;
-    border-radius: 15px;
     margin-bottom: 0;
     padding: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
     text-align: center;
     justify-content: center;
     gap: 200px;
     align-items: center;
+    margin-right: 0;
+
 }
 
 .div1 a{
