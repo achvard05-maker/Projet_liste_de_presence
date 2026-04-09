@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="">
+            <h1>Connexion</h1>
+            <label for="">Adresse email :</label>
+            <input type="email" name="email"required> <br><br>
+            <label for="">Mots de passe :</label>
+            <input type="password" name="password" required><br><br>
+            <button type="submit">Se connecter </button>
+            <p>Pas de compte ? <a href="">S'inscrire </a></p>
+        </form>
+    </body>
+</html>
