@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Statistiques</title>
-        <link rel="stylesheet" href="../static/CSS/statistiques.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/statistiques.css') }}">
     </head>
     <body>
         <header>
@@ -12,12 +12,11 @@
         
         </header>
         <div class="div1">
-                <button id="bouton1"><a href="templates/controle.html">TC1-A</a></button>
-                <button id="bouton2"><a href="templates/liste.html">TC1-B</a></button>
+                <button id="bouton1" style="width: auto; padding: 10px 30px;"><a href="{{ url_for('controle') }}" style="text-decoration: none; color: inherit;">Aller à la feuille de présence (46 étudiants)</a></button>
             </div>
         <footer>
-            <button class="bouton1"><a href="">Exporter en Excel</a></button>
-            <button class="bouton2"><a href="../interface.html">Retour</a></button>
+            <button class="bouton1"><a href="#" style="text-decoration: none; color: inherit;">Exporter en Excel</a></button>
+            <button class="bouton2"><a href="{{ url_for('index') }}" style="text-decoration: none; color: inherit;">Retour</a></button>
         </footer>
     </body>
 </html>

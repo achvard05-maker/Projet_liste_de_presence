@@ -1,269 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>liste</title>
-    <link rel="stylesheet" href="../static/CSS/controle.css">
+    <!-- On charge le CSS de controle ou de liste selon la classe -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/controle.css') }}">
+    <style>
+        /* Ajout de styles pour harmoniser si besoin */
+        a { text-decoration: none; color: inherit; }
+    </style>
 </head>
     <body>
         <header>
-            <h1>Liste de la classe <span>TC1-A</span></h1>
+            <h1>Liste d'appel des étudiants</h1>
         </header>
+        <form method="POST">
             <table>
                 <thead>
-                    <th>Numero</th>
+                    <th>Numéro</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Sexe</th>
+                    <th>Matricule</th>
                     <th colspan="2">Statut</th>
                 </thead>
                 <tbody>
+                    {% for etudiant in etudiants %}
                     <tr>
-                        <td>01</td>
-                        <td>ABALO</td>
-                        <td>Célia</td>
-                        <td>F</td>
-                        <td><input type="radio" id="present" name="celia" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="celia" value="Absent">
-                        <label for="Absent">Absent</label> </td>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ etudiant['nom'] }}</td>
+                        <td>{{ etudiant['prenom'] }}</td>
+                        <td>{{ etudiant['matricule'] }}</td>
+                        <td>
+                            <input type="radio" id="present_{{ etudiant['id'] }}" name="statut_{{ etudiant['id'] }}" value="present" checked>
+                            <label for="present_{{ etudiant['id'] }}">Présent</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="absent_{{ etudiant['id'] }}" name="statut_{{ etudiant['id'] }}" value="absent">
+                            <label for="absent_{{ etudiant['id'] }}">Absent</label> 
+                        </td>
                     </tr>
-                    <tr>
-                        <td>02</td>
-                        <td>ADETONA</td>
-                        <td>Djamal</td>
-                        <td>M</td>
-                       <td><input type="radio" id="present" name="jamal" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="jamal" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>03</td>
-                        <td>ADJAYI</td>
-                        <td>Jacques Emmanuel</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="jac" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="jac" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>04</td>
-                        <td>AGBALENYO</td>
-                        <td>Koamie Haniel</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="haniel" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="haniel" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    <tr>
-                        <td>05</td>
-                        <td>AHOULOU</td>
-                        <td>Kodjo Romaric</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="romarique" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="romarique" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-<<<<<<< HEAD
-                    <tr>
-                        <td>06</td>
-                        <td>AKOTO</td>
-                        <td>Bright Osborn Freeman</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="osborn" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="osborn" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr><tr>
-                        <td>07</td>
-                        <td>AKOUETE</td>
-                        <td>Kafoui Cynthia</td>
-                        <td>F</td>
-                        <td><input type="radio" id="present" name="cynthia" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="cynthia" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>08</td>
-                        <td>ALI-BIDJOWE</td>
-                        <td>Zeynab</td>
-                        <td>F</td>
-                        <td><input type="radio" id="present" name="ali" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="ali" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>09</td>
-                        <td>ANANI</td>
-                        <td>Dede Louise Sylvana</td>
-                        <td>F</td>
-                        <td><input type="radio" id="present" name="louise" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="louise" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>ASSI</td>
-                        <td>Essowèdéou Crépin</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="crepin" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="crepin" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>ATTAH</td>
-                        <td>Hervé</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="herve" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="herve" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>AYENA</td>
-                        <td>Germain</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="ayena" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="ayena" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>BADOHOUN</td>
-                        <td>Abla Eyram Lorraine</td>
-                        <td>F</td>
-                       <td><input type="radio" id="present" name="loraine" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="loraine" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>BATCHOUDI</td>
-                        <td>Hodalou Gnimdou</td>
-                        <td>F</td>
-                        <td><input type="radio" id="present" name="nadege" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="nadege" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>BODJONA</td>
-                        <td>alphonse Magnoudéwa</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="phon" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="phon" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>16</td>
-                        <td>DAKETSE</td>
-                        <td>Koffi Semefia</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="kofi" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="kofi" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>17</td>
-                        <td>DJIBANI</td>
-                        <td>Moni Achille</td>
-                        <td>M</td>
-                       <td><input type="radio" id="present" name="acg" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="acg" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>18</td>
-                        <td>DOSSA</td>
-                        <td>Akou Yekonia</td>
-                        <td>F</td>
-                        <td><input type="radio" id="present" name="aku" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="aku" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td>EGAH</td>
-                        <td>Elom Jérémie</td>
-                        <td>M</td>
-                        <td><input type="radio" id="present" name="elom" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="elom" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>ESSEH</td>
-                        <td>Edem Junior</td>
-                        <td>M</td>
-                      <td><input type="radio" id="present" name="edm" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="edem" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>21</td>
-                        <td>FOLIKOUE</td>
-                        <td>Foli Yao Maximin</td>
-                        <td>M</td>
-                       <td><input type="radio" id="present" name="max" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="max" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>22</td>
-                        <td>GABIAM</td>
-                        <td>Emefa Phoebé</td>
-                        <td>F</td>
-                       <td><input type="radio" id="present" name="phob" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="phob" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-                    <tr>
-                        <td>23</td>
-                        <td>GBEGBENI</td>
-                        <td>N'nabé</td>
-                        <td>M</td>
-                       <td><input type="radio" id="present" name="n'ab" value="present">
-                        <label for="present">present</label></td>
-                        <td><input type="radio" id="absent" name="n'ab" value="Absent">
-                        <label for="Absent">Absent</label> </td>
-                    </tr>
-=======
->>>>>>> 9c342879971b35b463fc9efa6cdafbd9d0384979
-                    
+                    {% endfor %}
                 </tbody>
             </table>
             <footer>
-<<<<<<< HEAD
-                <button>Exporter</button>
-                <form>
-                    <button type="submit">Enregistrer</button>
-                    <button type="reset">Reinitialiser</button>
-                </form>
-=======
-                <button><a href="statistique.html">valider le contrôle</a></button>
-                
->>>>>>> 9c342879971b35b463fc9efa6cdafbd9d0384979
+                <button type="button">Exporter</button>
+                <button type="submit">Enregistrer</button>
+                <button type="reset">Réinitialiser</button>
+                <button type="button"><a href="{{ url_for('statistique') }}">Retour Statistique</a></button>
             </footer>
+        </form>
     </body>
 </html>
